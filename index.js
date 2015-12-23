@@ -15,7 +15,9 @@ function SitemapStream () {
 
 util.inherits(SitemapStream, stream.Transform);
 
-function encodeHTML (str) {
+function encodeHTML (input) {
+  var str = typeof input === 'string' ? input : input.toString();
+
   return str
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
